@@ -1,0 +1,66 @@
+{% extends "base.html" %}
+
+{% block content %}
+
+<h2>📋 All Appointments</h2>
+
+{% with messages = get_flashed_messages(with_categories=true) %}
+  {% for category, message in messages %}
+    <div class="alert alert-{{ category }}">{{ message }}</div>
+  {% endfor %}
+{% endwith %}
+
+{% if appointments and appointments|length > 0 %}
+<div class="card">
+  <div class="table-wrapper">
+    <table>
+      <thead>
+        <tr>
+          <th>Appointment ID</th>
+          <th>Patient</th>
+          <th>Doctor</th>
+          <th>Date</th>
+          <th>Time</th>
+          <th>Status</th>
+          <th>Diagnosis</th>
+        </tr>
+      </thead>
+      <tbody>
+        {% for appt in appointments %}
+        <tr>
+          <td style="font-size:12px; color:var(--text-muted); font-family:monospace;">{{ appt.appointment_id }}</td>
+          <td>{{ appt.patient_email }}</td>
+          <td>{{ appt.doctor_email }}</td>
+          <td>{{ appt.date }}</td>
+          <td>{{ appt.time }}</td>
+          <td>
+            <span style="background:rgba(14,124,123,0.1); color:var(--teal); padding:3px 10px; border-radius:50px; font-size:12px; font-weight:600;">
+              {{ appt.status }}
+            </span>
+          </td>
+          <td>{% if appt.diagnosis %}{{ appt.diagnosis }}{% else %}<span style="color:var(--text-muted); font-style:italic;">Pending</span>{% endif %}</td>
+        </tr>
+        {% endfor %}
+      </tbody>
+    </table>
+  </div>
+</div>
+{% else %}
+<div class="card">
+  <div class="empty-state">
+    <div class="empty-icon">📭</div>
+    <h4>No appointments found</h4>
+    <p>There are no appointments to display at the moment.</p>
+  </div>
+</div>
+{% endif %}
+
+<div class="action-bar">
+  {% if session.get('role') == 'doctor' %}
+    <a href="/doctor_dashboard" class="btn btn-outline">← Back to Dashboard</a>
+  {% else %}
+    <a href="/patient_dashboard" class="btn btn-outline">← Back to Dashboard</a>
+  {% endif %}
+</div>
+
+{% endblock %}

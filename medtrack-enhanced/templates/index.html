@@ -1,0 +1,50 @@
+{% extends "base.html" %}
+
+{% block content %}
+
+<!-- HERO -->
+<div class="hero-section">
+  <div class="hero-badge">
+    <span class="hero-badge-dot"></span>
+    Cloud-Enabled Platform
+  </div>
+
+  <h2>Healthcare, managed <span>smarter</span></h2>
+
+  <p>Book appointments, track diagnoses, and stay connected with your care team — all in one seamless platform.</p>
+
+  <div class="hero-actions">
+    {% if not session.get('user') %}
+      <a href="/login" class="btn btn-hero">Get Started</a>
+      <a href="/register" class="btn btn-hero btn-outline">Create Account</a>
+    {% else %}
+      {% if session.get('role') == 'doctor' %}
+        <a href="/doctor_dashboard" class="btn btn-hero">Go to Dashboard</a>
+      {% else %}
+        <a href="/patient_dashboard" class="btn btn-hero">Go to Dashboard</a>
+      {% endif %}
+    {% endif %}
+  </div>
+</div>
+
+<!-- FEATURE CARDS -->
+<div class="dashboard-grid">
+
+  <div class="dashboard-box">
+    <h3>📅 Easy Appointment Booking</h3>
+    <p>Schedule appointments with doctors in seconds. Choose your date, time, and specialist with just a few clicks.</p>
+  </div>
+
+  <div class="dashboard-box">
+    <h3>📝 Real-Time Diagnosis</h3>
+    <p>Doctors securely update patient diagnoses in real-time — accessible instantly from any device, anywhere.</p>
+  </div>
+
+  <div class="dashboard-box">
+    <h3>☁️ Cloud Powered</h3>
+    <p>Built on AWS EC2 with DynamoDB and SNS for high availability, reliability, and instant notifications.</p>
+  </div>
+
+</div>
+
+{% endblock %}

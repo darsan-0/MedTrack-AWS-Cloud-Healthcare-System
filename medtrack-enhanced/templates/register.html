@@ -1,0 +1,44 @@
+{% extends "base.html" %}
+
+{% block content %}
+<div class="form-card">
+  <div class="card">
+    <div>
+      <p class="form-title">Create account</p>
+      <span class="form-sub">Join MedTrack to manage your healthcare</span>
+
+      {% with messages = get_flashed_messages(with_categories=true) %}
+        {% for category, message in messages %}
+          <div class="alert alert-{{ category }}">{{ message }}</div>
+        {% endfor %}
+      {% endwith %}
+
+      <form method="POST">
+        <label>Full Name</label>
+        <input type="text" name="name" placeholder="Dr. Jane Smith" required>
+
+        <label>Email Address</label>
+        <input type="email" name="email" placeholder="you@example.com" required>
+
+        <label>Password</label>
+        <input type="password" name="password" placeholder="Create a strong password" required>
+
+        <label>I am a</label>
+        <select name="role" required>
+          <option value="">— Select your role —</option>
+          <option value="patient">Patient</option>
+          <option value="doctor">Doctor</option>
+        </select>
+
+        <button type="submit" class="btn" style="width:100%; padding:13px; border-radius:10px; font-size:15px; margin-top:4px;">
+          Create Account
+        </button>
+      </form>
+
+      <div class="form-footer-link">
+        Already have an account? <a href="/login">Sign in →</a>
+      </div>
+    </div>
+  </div>
+</div>
+{% endblock %}

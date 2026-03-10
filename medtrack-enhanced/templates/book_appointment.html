@@ -1,0 +1,39 @@
+{% extends "base.html" %}
+
+{% block content %}
+
+<div class="form-card" style="max-width:560px;">
+  <div class="card">
+    <div>
+      <p class="form-title" style="text-align:left; margin-bottom:4px;">📅 Book Appointment</p>
+      <span class="form-sub" style="text-align:left; display:block; margin-bottom:24px;">Fill in the details below to schedule your visit</span>
+
+      {% with messages = get_flashed_messages(with_categories=true) %}
+        {% for category, message in messages %}
+          <div class="alert alert-{{ category }}">{{ message }}</div>
+        {% endfor %}
+      {% endwith %}
+
+      <form method="POST">
+        <label>Doctor's Email</label>
+        <input type="email" name="doctor_email" placeholder="doctor@clinic.com" required>
+
+        <label>Appointment Date</label>
+        <input type="date" name="date" required>
+
+        <label>Preferred Time</label>
+        <input type="time" name="time" required>
+
+        <button type="submit" class="btn" style="width:100%; padding:13px; border-radius:10px; font-size:15px; margin-top:4px;">
+          Confirm Booking
+        </button>
+      </form>
+
+      <div class="action-bar" style="margin-top:20px; padding-top:20px; border-top: 1px solid var(--ivory-dark);">
+        <a href="/patient_dashboard" class="btn btn-outline" style="border-radius:10px;">← Back to Dashboard</a>
+      </div>
+    </div>
+  </div>
+</div>
+
+{% endblock %}

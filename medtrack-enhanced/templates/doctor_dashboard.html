@@ -1,0 +1,41 @@
+{% extends "base.html" %}
+
+{% block content %}
+
+<h2>👨‍⚕️ Doctor Dashboard</h2>
+
+{% with messages = get_flashed_messages(with_categories=true) %}
+  {% for category, message in messages %}
+    <div class="alert alert-{{ category }}">{{ message }}</div>
+  {% endfor %}
+{% endwith %}
+
+<div class="dashboard-grid">
+
+  <!-- View Appointments -->
+  <div class="dashboard-box">
+    <h3>📅 All Appointments</h3>
+    <p>View all patient appointments assigned to you. Manage schedules and track status updates.</p>
+    <a href="/view_appointments" class="btn">View All</a>
+  </div>
+
+  <!-- Submit Diagnosis -->
+  <div class="dashboard-box">
+    <h3>📝 Submit Diagnosis</h3>
+    <p>Update and submit diagnoses for completed patient appointments quickly and securely.</p>
+    <a href="/submit_diagnosis" class="btn">Submit</a>
+  </div>
+
+  <!-- Search -->
+  <div class="dashboard-box">
+    <h3>🔍 Search by Date</h3>
+    <p>Filter patient appointments by date to find specific sessions and records.</p>
+    <form action="/search" method="POST">
+      <input type="date" name="date" required>
+      <button type="submit" class="btn" style="width:100%;">Search</button>
+    </form>
+  </div>
+
+</div>
+
+{% endblock %}

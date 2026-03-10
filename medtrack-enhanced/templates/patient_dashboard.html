@@ -1,0 +1,41 @@
+{% extends "base.html" %}
+
+{% block content %}
+
+<h2>🧑‍⚕️ Patient Dashboard</h2>
+
+{% with messages = get_flashed_messages(with_categories=true) %}
+  {% for category, message in messages %}
+    <div class="alert alert-{{ category }}">{{ message }}</div>
+  {% endfor %}
+{% endwith %}
+
+<div class="dashboard-grid">
+
+  <!-- Book Appointment -->
+  <div class="dashboard-box">
+    <h3>📅 Book Appointment</h3>
+    <p>Schedule a new appointment with your preferred doctor. Choose a convenient date and time.</p>
+    <a href="/book_appointment" class="btn">Book Now</a>
+  </div>
+
+  <!-- View Appointments -->
+  <div class="dashboard-box">
+    <h3>📋 My Appointments</h3>
+    <p>Review your upcoming and past appointments, along with doctor diagnoses and notes.</p>
+    <a href="/view_appointments" class="btn">View All</a>
+  </div>
+
+  <!-- Search -->
+  <div class="dashboard-box">
+    <h3>🔍 Search by Date</h3>
+    <p>Find a specific appointment quickly by searching for your chosen date.</p>
+    <form action="/search" method="POST">
+      <input type="date" name="date" required>
+      <button type="submit" class="btn" style="width:100%;">Search</button>
+    </form>
+  </div>
+
+</div>
+
+{% endblock %}
