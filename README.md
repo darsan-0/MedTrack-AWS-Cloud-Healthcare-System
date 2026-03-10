@@ -1,4 +1,5 @@
 
+
 ---
 
 # 🏥 MedTrack – AWS Cloud Healthcare System
@@ -18,21 +19,21 @@
 
 ---
 
-# 🌍 Overview
+# 🌍 Project Overview
 
-**MedTrack AWS Cloud Healthcare System** is a **cloud-based medical management platform** that enables hospitals, doctors, and patients to manage healthcare data efficiently.
+**MedTrack – AWS Cloud Healthcare System** is a **cloud-enabled medical management platform** designed to help hospitals, doctors, and patients manage healthcare data efficiently.
 
-The system provides **secure patient record management, appointment scheduling, and cloud-powered scalability using AWS services**.
+The platform demonstrates how **cloud computing and web technologies can modernize healthcare systems** by providing secure, scalable, and accessible patient data management.
 
-Cloud healthcare systems like this help hospitals **store, access, and share patient records securely across healthcare facilities**, improving collaboration and patient care. ([medtrack.africa][1])
+This project integrates **Flask-based APIs with AWS cloud infrastructure** to simulate a real-world **cloud healthcare application**.
 
 ---
 
-# ✨ Key Features
+# 🚀 Key Features
 
 ## 👩‍⚕️ Patient Features
 
-✔ Register & Login
+✔ Patient Registration & Login
 ✔ Book Doctor Appointments
 ✔ View Medical Records
 ✔ Track Health Reports
@@ -46,7 +47,7 @@ Cloud healthcare systems like this help hospitals **store, access, and share pat
 ✔ Manage Patient Records
 ✔ View Appointments
 ✔ Prescribe Treatments
-✔ Monitor Medical History
+✔ Monitor Patient Medical History
 
 ---
 
@@ -56,48 +57,52 @@ Cloud healthcare systems like this help hospitals **store, access, and share pat
 ✔ Scalable Infrastructure
 ✔ Secure Medical Data Storage
 ✔ Cloud-based APIs
-✔ High availability architecture
-
-Cloud healthcare systems improve data accessibility and allow multiple healthcare providers to collaborate efficiently. ([IJSRST][2])
+✔ High Availability Architecture
 
 ---
 
 # 🧠 System Architecture
 
 ```
-Users
- │
- ▼
-Frontend (HTML | CSS | JavaScript)
- │
- ▼
-Backend API (Flask / Python)
- │
- ▼
-AWS Cloud Services
- │
- ├── AWS EC2  → Application hosting
- ├── AWS S3   → Medical file storage
- ├── AWS RDS  → Patient database
- ├── AWS IAM  → Secure authentication
- │
- ▼
-Healthcare Database
+           Users (Patients / Doctors)
+                     │
+                     ▼
+         Frontend (HTML | CSS | JavaScript)
+                     │
+                     ▼
+          Backend API (Flask / Python)
+                     │
+                     ▼
+               AWS Cloud Layer
+                     │
+        ┌────────────┼────────────┐
+        │            │            │
+        ▼            ▼            ▼
+     AWS EC2      AWS S3       AWS RDS
+ Application     Medical      Patient
+  Hosting      File Storage   Database
+        │
+        ▼
+     AWS IAM
+ Authentication & Access Control
 ```
 
 ---
 
 # 🛠️ Tech Stack
 
-| Technology              | Purpose       |
-| ----------------------- | ------------- |
-| Python                  | Backend logic |
-| Flask                   | Web framework |
-| HTML / CSS / JavaScript | Frontend UI   |
-| SQLite / RDS            | Database      |
-| AWS EC2                 | Cloud hosting |
-| AWS S3                  | Storage       |
-| AWS IAM                 | Security      |
+| Technology | Purpose                     |
+| ---------- | --------------------------- |
+| Python     | Backend logic               |
+| Flask      | Web framework               |
+| HTML       | Structure                   |
+| CSS        | Styling                     |
+| JavaScript | Client-side interaction     |
+| SQLite     | Local database              |
+| AWS EC2    | Application hosting         |
+| AWS S3     | File storage                |
+| AWS RDS    | Cloud database              |
+| AWS IAM    | Security and access control |
 
 ---
 
@@ -137,17 +142,17 @@ git clone https://github.com/darsan-0/MedTrack-AWS-Cloud-Healthcare-System.git
 
 ---
 
-## 2️⃣ Navigate to Project
+## 2️⃣ Navigate to the Project Directory
 
-```
+```bash
 cd MedTrack-AWS-Cloud-Healthcare-System
 ```
 
 ---
 
-## 3️⃣ Install Dependencies
+## 3️⃣ Install Required Dependencies
 
-```
+```bash
 pip install -r requirements.txt
 ```
 
@@ -155,13 +160,13 @@ pip install -r requirements.txt
 
 ## 4️⃣ Run the Application
 
-```
+```bash
 python app.py
 ```
 
 ---
 
-## 5️⃣ Open Browser
+## 5️⃣ Open in Browser
 
 ```
 http://127.0.0.1:5000
@@ -169,70 +174,110 @@ http://127.0.0.1:5000
 
 ---
 
-# ☁️ AWS Deployment
+# ☁️ AWS Deployment Guide
 
-Steps to deploy on AWS:
+Steps to deploy this project on AWS:
 
-1️⃣ Create **EC2 Instance**
-2️⃣ Upload project using **Git or SCP**
-3️⃣ Install dependencies
+### 1️⃣ Create an EC2 Instance
 
-```
-pip install -r requirements.txt
-```
-
-4️⃣ Run server
-
-```
-python app.py
-```
-
-5️⃣ Configure **security groups (port 5000)**
+* Launch **Ubuntu EC2 instance**
+* Allow **Port 22 (SSH)** and **Port 5000 (HTTP)**
 
 ---
 
-# 📊 Future Improvements
+### 2️⃣ Connect to EC2
 
-🚀 AI Health Prediction
-🚀 Telemedicine Video Consultation
-🚀 IoT Health Monitoring Integration
+```bash
+ssh -i key.pem ubuntu@your-ec2-ip
+```
+
+---
+
+### 3️⃣ Clone the Repository
+
+```bash
+git clone https://github.com/darsan-0/MedTrack-AWS-Cloud-Healthcare-System.git
+```
+
+---
+
+### 4️⃣ Install Python & Dependencies
+
+```bash
+sudo apt update
+sudo apt install python3-pip -y
+pip3 install -r requirements.txt
+```
+
+---
+
+### 5️⃣ Run the Application
+
+```bash
+python3 app.py
+```
+
+---
+
+### 6️⃣ Access via Public IP
+
+```
+http://your-ec2-public-ip:5000
+```
+
+---
+
+# 📊 Future Enhancements
+
+🚀 AI-Based Health Prediction
+🚀 Video Telemedicine Integration
+🚀 IoT Health Monitoring Devices
 🚀 Blockchain Medical Records
 🚀 Mobile App Integration
-🚀 AI Doctor Recommendation
+🚀 AI Doctor Recommendation System
 
 ---
 
 # 🔐 Security Features
 
-✔ Secure authentication
-✔ Data encryption
-✔ Cloud storage security
-✔ Role-based access control
+✔ Secure Authentication
+✔ Role-based Access Control
+✔ Cloud Infrastructure Security
+✔ Data Protection Mechanisms
 
-Healthcare cloud systems must prioritize **data protection and secure access to sensitive patient records**. ([arXiv][3])
+Healthcare systems must ensure **secure handling of sensitive patient information**, which is a core focus of this architecture.
 
 ---
 
 # 📸 Screenshots
 
+Add screenshots here:
+
 ```
-Add screenshots here
+/screenshots/home.png
+/screenshots/dashboard.png
+/screenshots/appointments.png
+```
 
 Example:
 
-/screenshots/home.png
-/screenshots/dashboard.png
-/screenshots/appointment.png
+```
+screenshots/
+ ├── home.png
+ ├── dashboard.png
+ └── appointment.png
 ```
 
 ---
 
-# 👨‍💻 Contributors
+# 👨‍💻 Author
 
-| Name         | Role                     |
-| ------------ | ------------------------ |
-| Darsan       | Developer                |
-| Contributors | Open Source Contributors |
+| Name              | Role      |
+| ----------------- | --------- |
+| **Darsan Mannem** | Developer |
+
+GitHub:
+[https://github.com/darsan-0](https://github.com/darsan-0)
 
 ---
 
@@ -243,11 +288,11 @@ Contributions are welcome!
 Steps:
 
 ```
-Fork the repo
-Create your feature branch
-Commit your changes
-Push to the branch
-Open a Pull Request
+1. Fork the repository
+2. Create a new branch
+3. Commit your changes
+4. Push the branch
+5. Open a Pull Request
 ```
 
 ---
@@ -270,7 +315,7 @@ This project is licensed under the **MIT License**.
 
 # 💡 Vision
 
-Our goal is to build a **scalable cloud-based healthcare ecosystem** that improves accessibility, patient care, and hospital efficiency through modern technology.
+To build a **scalable, secure, and cloud-enabled healthcare ecosystem** that improves hospital efficiency and patient care through modern technology.
 
 ---
 
@@ -281,4 +326,3 @@ Our goal is to build a **scalable cloud-based healthcare ecosystem** that improv
 </p>
 
 ---
-
